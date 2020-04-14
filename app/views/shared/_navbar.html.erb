@@ -1,0 +1,27 @@
+<nav class="navbar-source">
+  <div class="logo">
+    <%= image_tag ('logo.png'), height: 40 %>
+  </div>
+  <ul class="nav-links">
+    <li class="nav-item active">
+      <%= link_to "#" do %>
+          <%= t(".jackpot", default: "jackpot") %>
+        <% end %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "#" do %>
+          <%= t(".hangerman", default: "hangerman") %>
+        <% end %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "#" do %>
+          <%= t(".monaco", default: "monaco") %>
+        <% end %>
+    </li>
+  </ul>
+  <div class="burger">
+    <div class="line1"></div>
+    <div class="line2"></div>
+    <div class="line3"></div>
+  </div>
+</nav>
