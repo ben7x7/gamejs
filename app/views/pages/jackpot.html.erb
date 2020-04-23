@@ -1,0 +1,35 @@
+
+<section class="gamejs">
+  <h1 class="page-title">jackpot</h1>
+  <div class="overlay-text visible">
+    Click to Start
+  </div>
+  <div class="overlay-text" id="game-over-text">
+    GAME OVER
+    <span class="overlay-text-small">Click to Start</span>
+  </div>
+  <div class="overlay-text" id="victory-text">
+    VICTORY
+    <span class="overlay-text-small">Click to Start</span>
+  </div>
+
+  <div class="game-container">
+    <div class="grid-cards">
+      <div class="card card-1" id="c1" data-value="1">1</div>
+      <div class="card card-2" id="c2" data-value="2">2</div>
+      <div class="card card-3" id="c3" data-value="3">3</div>
+      <div class="card card-4" id="c4" data-value="4">4</div>
+      <div class="card card-5" id="c5" data-value="5">5</div>
+      <div class="card card-6" id="c6" data-value="6">6</div>
+      <div class="card card-7" id="c7" data-value="7">7</div>
+      <div class="card card-8" id="c8" data-value="8">8</div>
+      <div class="card card-9" id="c9" data-value="9">9</div>
+    </div>
+    <div class="dice-wrapper">
+      <%= image_tag ('dice-1.png'), id:'dice1' %>
+      <%= image_tag ('dice-2.png'), id:'dice2' %>
+    </div>
+    <h2 id="status" class="text-center"></h2>
+    <button class="btn" id="btn-roll">Lancer les dés</button>
+  </div>
+</section>
