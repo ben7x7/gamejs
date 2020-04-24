@@ -17,4 +17,4 @@ const navSlide = () => {
   });
 }
 
-export {navSlide};
+export { navSlide };

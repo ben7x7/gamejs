@@ -10,7 +10,7 @@
 
 .game-info {
   color: white;
-  font-size: 4em;
+  font-size: 3em;
 }
 
 .game-container {
@@ -19,13 +19,14 @@
   grid-gap: 10px;
   margin: 50px;
   justify-content: center;
-  perspective: 500px;
+  -webkit-perspective: 500px;
 }
 
 .card {
   position: relative;
   width: 125px;
   height: 175px;
+  background-color: $dark-gray;
 }
 
 .card-face {
@@ -36,17 +37,18 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   border-radius: 12px;
   border-width: 1px;
   border-style: solid;
+  transition: transform 500ms ease-in-out;
 }
 
-.card.show .card-back {
+.card.appear .card-back {
   transform: rotateY(-180deg);
 }
 
-.card.show .card-front {
+.card.appear .card-front {
   transform: rotateY(0);
 }
 
@@ -55,13 +57,16 @@
 }
 
 .card-front {
-  background-color: white;
+  background-color: $medium-gray;
+  border-color: $light-gray;
   transform: rotateY(180deg);
+  padding: 15px;
 }
 
 .card-value {
   transition: transform 100ms ease-in-out;
   transform: scale(0.9);
+  width: inherit;
 }
 .card-front:hover .card-value {
   transform: scale(1);
