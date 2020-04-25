@@ -71,7 +71,7 @@ if (document.readyState === 'loading') {
 
 function playJackpot(){
   let overlays = Array.from(document.getElementsByClassName('overlay-text'));
-  let cards = Array.from(document.getElementsByClassName('card-jackpot'));
+  let tiles = Array.from(document.getElementsByClassName('tile'));
   let game = new Jackpot();
 
   overlays.forEach(overlay => {
@@ -91,4 +91,4 @@ function playJackpot(){
   });
 }
 
-export default { playJackpot };
+export { playJackpot };

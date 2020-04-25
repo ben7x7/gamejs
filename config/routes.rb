@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'jackpot', to: 'pages#jackpot', as: :jackpot
   get 'memory', to: 'pages#memory', as: :memory
-  # get 'projects', to: 'pages#projects', as: :projects
+  get 'shifumi', to: 'pages#shifumi', as: :shifumi
   # get 'contact', to: 'pages#contact', as: :contact
 end
