@@ -1,94 +1,124 @@
 
-class Jackpot {
-  // constructor(dice1, dice2, cards){
-  //   this.cardsArray = cards;
-  //   this.dice1 = dice1;
-  //   this.dice2 = dice2;
-  // }
-  // conditions for the game to start
-  startGame(){
-    this.selectCard = null;
-    this.selectedCards = [];
-  }
-  //
-  // selectCard(card){
-  //   if (this.canSelectCard(card)) {
-  //     this.selectedCards.push(card);
-  //     card.classList.add('selected');
-  //   }
-  // }
 
+const playJackpot = () => {
 
-  // rollDices function
-  rollDices(){
-    document.getElementById('btn-roll').addEventListener('click', () => {
-      // create random for dices
-      let dice1 = Math.floor(Math.random()*6)+1;
-      let dice2 = Math.floor(Math.random()*6)+1;
-      let sum = dice1 + dice2;
-
-      if (sum < 9){
-        document.getElementById('status').innerText = "Card to select either: " + dice1 + " or " + dice2 + " or " + sum;
-      } else {
-        document.getElementById('status').innerText = "Card to select either: " + dice1 + " or " + dice2;
-      }
-
-      document.getElementById('c' + dice1).classList.add('selected');
-      document.getElementById('c' + dice2).classList.add('selected');
-      document.getElementById('c' + dice1 + dice2).classList.add('selected');
-
-
-
-      // display the dices' results
-      document.getElementById('dice1').src = '/assets/dice-' + dice1 +'.png';
-      document.getElementById('dice2').src = '/assets/dice-' + dice2 +'.png';
-      // disabled button after rolling
-      document.getElementById('btn-roll').setAttribute('disabled', true);
-
-    });
-  }
-
-
-  canSelectCard(card){
-    return card === dice1 || card === dice2 || card === dice1 + dice2 || !this.selectedCards.includes(card);
-  }
-  // victory function
-  victory(){
-    document.getElementById('victory-text').classList.add('visible');
-  }
-  // game over function
-  gameOver(){
-    document.getElementById('game-over-text').classList.add('visible');
-  }
-}
-
-
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', playJackpot());
-} else {
-  playJackpot();
-}
-
-function playJackpot(){
   let overlays = Array.from(document.getElementsByClassName('overlay-text'));
   let tiles = Array.from(document.getElementsByClassName('tile'));
-  let game = new Jackpot();
+  let flippedTiles = [];
+  let clicked = false;
 
-  overlays.forEach(overlay => {
-    overlay.addEventListener('click', () => {
-      overlay.classList.remove('visible');
-      game.startGame();
+  const startGame = () => {
+    overlays.forEach(overlay => {
+      overlay.addEventListener('click', () => {
+        overlay.classList.remove('visible');
+      });
     });
-  });
+  }
 
-  cards.forEach(card => {
-    card.addEventListener('click', () => {
-      let cardVal = parseInt(card-jackpot.dataset.value);
+  const round = (dice1, dice2, totalDices) => {
+    // Event Listener for rollDices
+    document.getElementById('btn-roll').addEventListener('click', () => {
+      // random dices
+      dice1 = Math.floor(Math.random()*6)+1;
+      dice2 = Math.floor(Math.random()*6)+1;
+      totalDices = dice1 + dice2;
+      clicked = false;
+      // display dices results
+      document.getElementById('dice1').src = '../assets/dice-' + dice1 +'.png';
+      document.getElementById('dice2').src = '../assets/dice-' + dice2 +'.png';
+      // disabled btn-roll
+      document.getElementById('btn-roll').setAttribute('disabled', '');
 
-        card.classList.add('selected');
-        this.selectedCards.push('card');
+      let d1 = 0;
+      let d2 = 0;
+      let totalD = 0;
+
+      if (!flippedTiles.includes(dice1)) {
+        d1 = dice1;
+      } else {
+        d1 = 0;
+      }
+
+      if (!flippedTiles.includes(dice2)) {
+        d2 = dice2;
+      } else {
+        d2 = 0;
+      }
+
+      if (!flippedTiles.includes(totalDices) && totalDices <= 9) {
+        totalD = totalDices;
+      } else {
+        totalD = 0;
+      }
+      console.log(d1, d2, totalD)
+
+      if (d1 === 0 && d2 === 0 && totalD === 0){
+        setTimeout(() => {
+          gameOver();
+        },1500);
+      }
+
+
+      // conditions to allow the flip
+      const canFlipTile = () => {
+        return clicked === false;
+      };
+
+      // victory function
+      const victory = () => {
+        reset();
+        document.getElementById('victory-text').classList.add('visible');
+      };
+      // flipTile function
+      const flipTile = tile => {
+        tiles.forEach(tile => {
+          // Event listener for each tiles
+          tile.addEventListener('click', function(){
+            let tileVal = parseInt(this.dataset.value)
+            if(canFlipTile() && (tileVal === d1 || tileVal === d2 || tileVal === totalD)) {
+              tile.classList.add('flipped');
+              flippedTiles.push(tileVal);
+              clicked = true;
+              document.getElementById('btn-roll').removeAttribute('disabled', '');
+              console.log(flippedTiles);
+              if (flippedTiles.length === tiles.length)
+                victory();
+            }
+          });
+        });
+      };
+      flipTile();
     });
-  });
-}
+
+    // Restart conditions
+    const reset = () => {
+      // Flip back tiles functions
+      tiles.forEach(tile => {
+        tile.classList.remove('flipped');
+      });
+      // Reset flippedTiles array
+      flippedTiles = [];
+      // set clicked to true to click nowhere
+      clicked = true;
+      // reset dice1 and dice2 view
+      document.getElementById('dice1').src = '../assets/dice-1.png';
+      document.getElementById('dice2').src = '../assets/dice-2.png';
+      // Reset Roll button
+      document.getElementById('btn-roll').removeAttribute('disabled', '');
+    }
+    // gameOver function
+    const gameOver = () => {
+      reset();
+      document.getElementById('game-over-text').classList.add('visible');
+    };
+  };
+
+  // call inner functions
+  startGame();
+  round();
+};
 
 export { playJackpot };
+
+
+

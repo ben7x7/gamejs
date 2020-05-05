@@ -4,14 +4,19 @@
   box-sizing: border-box;
 }
 
-.page-title {
+.jackpot-title {
   font-weight: bold;
   font-size: 4em;
   text-align: center;
   text-transform: uppercase;
+  color: $gold;
 }
 
-.grid-cards {
+.jackpot-container {
+  -webkit-perspective: 500px;
+}
+
+.tiles {
   margin: 50px 10px 50px 10px;
   display: grid;
   grid-template-columns: repeat(9, 1fr);
@@ -19,19 +24,49 @@
   grid-gap: 10px;
 }
 
-.card-jackpot {
+.tile {
+  position: relative;
+}
+
+.tile-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 5px;
+  transition: transform 500ms ease-in-out;
+}
+
+.tile-front {
+  background-color: $gold;
+  color: black;
+  font-size: 60px;
+  font-weight: bold;
+  transform: rotateY(180deg);
+}
+
+.tile-back {
   font-size: 42px;
   font-weight: bold;
   color: $dark-gray;
   background-color: $light-gray;
-  border-radius: 5px;
+   text-shadow:
+    1px 0px 1px #ccc, 0px 1px 1px #eee,
+    2px 1px 1px #ccc, 1px 2px 1px #eee,
+    3px 2px 1px #ccc;
+
 }
 
-.card.selected {
-  border-bottom: 10px solid $green;
+.tile.flipped .tile-front {
+  transform: rotateY(0);
+}
+
+.tile.flipped .tile-back {
+  transform: rotateY(-180deg);
 }
 
 .dice-wrapper {
@@ -52,9 +87,19 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  color: white;
-  background-color: $red;
   padding: 20px 50px;
+  text-transform: uppercase;
+  background-color: $gold;
+  font-size: 32px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 1px 0 #ccc,
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2);
 }
 
 .overlay-text {
