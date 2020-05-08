@@ -13,7 +13,7 @@ const playJackpot = () => {
         overlay.classList.remove('visible');
       });
     });
-  }
+  };
 
   const round = (dice1, dice2, totalDices) => {
     // Event Listener for rollDices
