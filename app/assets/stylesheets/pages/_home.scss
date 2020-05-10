@@ -6,133 +6,77 @@
 
 .home {
   display: flex;
+  flex-direction: column;
   height: 90vh;
   width: 100%;
-  font-size: 24px;
-  color: white;
+  justify-content: center;
+  align-items: center;
+  color: $dark-gray;
+  background-color: $light-gray;
 }
 
-.home h1 {
-  font-size: 30px;
+.main-title {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
-.home-wrapper {
-  height: 90vh;
-  text-align: left;
-  padding: 100px 80px 0px 80px;
+#gamejs {
+  text-transform: uppercase;
+  font-size: 60px;
+  font-weight: bold;
+  margin-bottom: none !important;
 }
 
-#developper {
-  animation: fill 2s ease forwards 1.2s;
-}
-#developper path:nth-child(1){
-  stroke-dasharray: 534px;
-  stroke-dashoffset: 534px;
-  animation: line-anim 2s ease forwards;
-}
-#developper path:nth-child(2){
-  stroke-dasharray: 343px;
-  stroke-dashoffset: 343px;
-  animation: line-anim 2s ease forwards;
-}
-#developper path:nth-child(3){
-  stroke-dasharray: 374px;
-  stroke-dashoffset: 374px;
-  animation: line-anim 2s ease forwards;
-}
-#developper path:nth-child(4){
-  stroke-dasharray: 381px;
-  stroke-dashoffset: 381px;
-  animation: line-anim 2s ease forwards 0.5s;
+#gamejs span {
+  color: #FFD601;
+  font-size: 60px;
 }
 
-#developper path:nth-child(5){
-  stroke-dasharray: 343px;
-  stroke-dashoffset: 343px;
-  animation: line-anim 2s ease forwards 0.5s;
+.main-title img {
+  width: 80px;
+  height: 80px;
+  margin: 0 0 0.5rem 0;
 }
 
-#developper path:nth-child(6){
-  stroke-dasharray: 236px;
-  stroke-dashoffset: 236px;
-  animation: line-anim 2s ease forwards 0.5s;
+.subtitle h4,
+.dev h4 {
+  font-size: 20px;
+  color: $gray;
 }
 
-#developper path:nth-child(7){
-  stroke-dasharray: 343px;
-  stroke-dashoffset: 343px;
-  animation: line-anim 2s ease forwards 0.5s;
-}
-#developper path:nth-child(8){
-  stroke-dasharray: 159px;
-  stroke-dashoffset: 159px;
-  animation: line-anim 2s ease forwards 0.5s;
-}
-#developper path:nth-child(9){
-  stroke-dasharray: 289px;
-  stroke-dashoffset: 289px;
-  animation: line-anim 2s ease forwards 0.5s;
-}
-#developper path:nth-child(10){
-  stroke-dasharray: 387px;
-  stroke-dashoffset: 387px;
-  animation: line-anim 2s ease forwards 0.5s;
-}
-#developper path:nth-child(11){
-  stroke-dasharray: 387px;
-  stroke-dashoffset: 387px;
-  animation: line-anim 2s ease forwards 0.5s;
-}
-#developper path:nth-child(12){
-  stroke-dasharray: 343px;
-  stroke-dashoffset: 343px;
-  animation: line-anim 2s ease forwards 0.5s;
-}
-#developper path:nth-child(13){
-  stroke-dasharray: 164px;
-  stroke-dashoffset: 164px;
-  animation: line-anim 2s ease forwards 0.5s;
+.cards {
+  display: flex;
 }
 
-@keyframes line-anim{
-  to{
-    stroke-dashoffset: 0;
-  }
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  width: 200px;
+  margin: 15px;
+  border: solid 2px $dark-gray;
+  position:relative;
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+       -moz-box-shadow: 0 10px 6px -6px #777;
+            box-shadow: 0 10px 6px -6px #777;
 }
 
-@keyframes fill{
-  from{
-    fill: transparent;
-  }
-  to{
-    fill: white;
-  }
-}
-
-.home-picture{
-  height: 90vh;
-  width: 100%;
-}
-.home-picture > img {
+.card-link {
+  position: absolute;
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  text-decoration: none;
 }
 
-@media screen and (max-width: 992px){
-  .home {
-    display: block;
-  }
+.card:hover {
+  background-color: #FFD601;
+}
 
-  .home-wrapper {
-    height: 50vh;
-    text-align: left;
-    padding-top: 50px;
-    padding-left: 50px;
-  }
-
-  .home-picture{
-    height: 40vh;
-    width: 100%;
-  }
+.logo img{
+  height: 50px;
+  background-color: $gray;
+  border-radius: 50px;
+  border-image: solid 2px black;
 }
