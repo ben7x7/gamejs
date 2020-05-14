@@ -17,15 +17,17 @@ const playJackpot = () => {
 
   const round = (dice1, dice2, totalDices) => {
     // Event Listener for rollDices
-    document.getElementById('btn-roll').addEventListener('click', () => {
+    let el = document.getElementById('btn-roll');
+    if(el){
+      el.addEventListener('click', () => {
       // random dices
       dice1 = Math.floor(Math.random()*6)+1;
       dice2 = Math.floor(Math.random()*6)+1;
       totalDices = dice1 + dice2;
       clicked = false;
       // display dices results
-      document.getElementById('dice1').src = "../assets/dice-" + dice1 + ".png";
-      document.getElementById('dice2').src = "../assets/dice-" + dice2 + ".png";
+      document.getElementById('dice1').src = "./../assets/dice-" + dice1 + ".png";
+      document.getElementById('dice2').src = "./../assets/dice-" + dice2 + ".png";
       // disabled btn-roll
       document.getElementById('btn-roll').setAttribute('disabled', '');
 
@@ -89,6 +91,7 @@ const playJackpot = () => {
       };
       flipTile();
     });
+    }
 
     // Restart conditions
     const reset = () => {
@@ -101,8 +104,8 @@ const playJackpot = () => {
       // set clicked to true to click nowhere
       clicked = true;
       // reset dice1 and dice2 view
-      document.getElementById('dice1').src = '../assets/dice-1.png';
-      document.getElementById('dice2').src = '../assets/dice-2.png';
+      document.getElementById('dice1').src = './../assets/dice-1.png';
+      document.getElementById('dice2').src = './../assets/dice-2.png';
       // Reset Roll button
       document.getElementById('btn-roll').removeAttribute('disabled', '');
     }

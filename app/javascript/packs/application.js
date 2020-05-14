@@ -9,8 +9,9 @@ import  { playJackpot } from '../components/jackpot.js';
 
 if (document.readyState === 'loading'){
   document.addEventListener('DOMContentLoaded', playJackpot());
-}
+} else {
 playJackpot();
+}
 
 
 
