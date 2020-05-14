@@ -24,8 +24,8 @@ const playJackpot = () => {
       totalDices = dice1 + dice2;
       clicked = false;
       // display dices results
-      document.getElementById('dice1').src = './../assets/dice-' + dice1 +'.png';
-      document.getElementById('dice2').src = './../assets/dice-' + dice2 +'.png';
+      document.getElementById('dice1').src = "../assets/dice-" + dice1 + ".png";
+      document.getElementById('dice2').src = "../assets/dice-" + dice2 + ".png";
       // disabled btn-roll
       document.getElementById('btn-roll').setAttribute('disabled', '');
 
@@ -59,7 +59,7 @@ const playJackpot = () => {
       }
 
 
-      // conditions to allow the flip
+      // condition to allow the flip
       const canFlipTile = () => {
         return clicked === false;
       };
