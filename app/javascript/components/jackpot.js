@@ -26,8 +26,8 @@ const playJackpot = () => {
       totalDices = dice1 + dice2;
       clicked = false;
       // display dices results
-      document.getElementById('dice1').src = "../../assets/images/dice-" + dice1 + ".png";
-      document.getElementById('dice2').src = "../../assets/images/dice-" + dice2 + ".png";
+      document.getElementById('dice1').src = "./../../assets/images/dice-" + dice1 + ".png";
+      document.getElementById('dice2').src = "./../../assets/images/dice-" + dice2 + ".png";
       // disabled btn-roll
       document.getElementById('btn-roll').setAttribute('disabled', '');
 
@@ -104,8 +104,8 @@ const playJackpot = () => {
       // set clicked to true to click nowhere
       clicked = true;
       // reset dice1 and dice2 view
-      document.getElementById('dice1').src = '../../assets/images/dice-1.png';
-      document.getElementById('dice2').src = '../../assets/images/dice-2.png';
+      document.getElementById('dice1').src = './../../assets/images/dice-1.png';
+      document.getElementById('dice2').src = './../../assets/images/dice-2.png';
       // Reset Roll button
       document.getElementById('btn-roll').removeAttribute('disabled', '');
     }
