@@ -1,24 +1,61 @@
-<section class="home">
-  <div class="main-title">
-    <h1 id="gamejs">Game<span>js</span></h1>
+<section class="gamejs">
+  <h1 class="jackpot-title">jackpot</h1>
+  <div class="overlay-text visible">
+    Click to Start
   </div>
-  <div class="subtitle">
-    <h4>Developped with Pure Javascript Codes</h4>
+  <div class="overlay-text" id="game-over-text">
+    GAME OVER
+    <span class="overlay-text-small">Click to Start</span>
   </div>
-  <div class="cards">
-    <div class="card">
-      <h3>JACKPOT</h3>
-      <%= link_to '', jackpot_path, class: "card-link" %>
-    </div>
-    <div class="card">
-      COMING SOON...
-    </div>
+  <div class="overlay-text" id="victory-text">
+    VICTORY
+    <span class="overlay-text-small">Click to Start</span>
   </div>
-  <div class="dev text-center mt-5">
-    <h4>by</h4>
-    <div class="logo">
-      <%= image_tag ('logo.png') %>
+  <div class="jackpot-container">
+    <div class="tiles">
+      <div class="tile" id="t1" data-value="1">
+        <div class="tile-face tile-front">*</div>
+        <div class="tile-face tile-back">1</div>
+      </div>
+      <div class="tile" id="t2" data-value="2">
+        <div class="tile-face tile-front">J</div>
+        <div class="tile-face tile-back">2</div>
+      </div>
+      <div class="tile" id="t3" data-value="3">
+        <div class="tile-face tile-front">A</div>
+        <div class="tile-face tile-back">3</div>
+      </div>
+      <div class="tile" id="t4" data-value="4">
+        <div class="tile-face tile-front">C</div>
+        <div class="tile-face tile-back">4</div>
+      </div>
+      <div class="tile" id="t5" data-value="5">
+        <div class="tile-face tile-front">K</div>
+        <div class="tile-face tile-back">5</div>
+      </div>
+      <div class="tile" id="t6" data-value="6">
+        <div class="tile-face tile-front">P</div>
+        <div class="tile-face tile-back">6</div>
+      </div>
+      <div class="tile" id="t7" data-value="7">
+        <div class="tile-face tile-front">O</div>
+        <div class="tile-face tile-back">7</div>
+      </div>
+      <div class="tile" id="t8" data-value="8">
+        <div class="tile-face tile-front">T</div>
+        <div class="tile-face tile-back">8</div>
+      </div>
+      <div class="tile" id="t9" data-value="9">
+        <div class="tile-face tile-front">*</div>
+        <div class="tile-face tile-back">9</div>
+      </div>
     </div>
+    <div class="dice-wrapper">
+      <%= image_tag ('dice-1.png'), id:'dice1' %>
+      <%= image_tag ('dice-2.png'), id:'dice2' %>
+    </div>
+    <h2 id="status" class="text-center"></h2>
+    <button class="btn" id="btn-roll">roll dices</button>
   </div>
 </section>
 
