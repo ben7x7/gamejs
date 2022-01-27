@@ -9,13 +9,13 @@
     "bootstrap": "^4.4.1",
     "chokidar": "3",
     "jquery": "3.5.1",
-    "normalize-url": "1.9.1",
+    "normalize-url": "4.5.1",
     "popper.js": "^1.16.1",
     "postcss": "^8.2.10",
     "ssri": "^8.0.1",
-    "trim-newlines": "^1.0.0",
+    "trim-newlines": "^3.0.1",
     "turbolinks": "^5.2.0",
-    "uuid": "7"
+    "uuid": "^7"
   },
   "version": "0.1.0",
   "devDependencies": {
