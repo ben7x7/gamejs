@@ -14,7 +14,7 @@
     "node-forge": "1",
     "nth-check": "2",
     "popper.js": "^1.16.1",
-    "postcss": "^8.2.10",
+    "postcss": "^8.4.31",
     "set-value": "^4.0.1",
     "ssri": "^8.0.1",
     "svgo": "^2",
